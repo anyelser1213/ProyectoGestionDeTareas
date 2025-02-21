@@ -3,11 +3,14 @@
 	1.cd sysbackend
 	2.pip install -r requerimientos.txt
 
-2.iniciamos migraciones:
+2.crear base de datos
+	CREATE DATABASE tareas
+
+3.iniciamos migraciones:
 	python manage.py makemigrations
 	python manage.py migrate
 
 
-2.Iniciamos proyecto
+4.Iniciamos proyecto
 	python manage.py runserver
 
