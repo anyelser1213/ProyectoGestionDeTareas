@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block titulo %}USUARIOS | DETALLES{% endblock %}
+
+
+
+{% block enlacessecundariosCSS %}
+
+        
+{% endblock %}
+
+
+{% block menu_superior %}
+
+        <!--Aqui se incluye el menu superior-->
+        {% include "menusuperior.html" %}
+        
+{% endblock%}
+
+{% block menu_lateral %}
+
+        <!--Aqui se incluye el menu superior-->
+        {% include "menulateral.html" with opcionprincipal="usuarios" subopcion="listar" %}
+            
+{% endblock%}
+
+
+{% block header_cuerpo %}
+     <!-- Content Header (Page header) -->
+     <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Usuarios</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Detalle</a></li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+{% endblock%}
+
+
+
+{% block cuerpo_1 %}
+
+<main class="app-content">
+    <!-- Contenedor que centra la tarjeta -->
+    <div class="d-flex justify-content-center align-items-center" style="min-height: 100h;">
+        <div class="card" style="width: 18rem;">
+            <!-- Mostrar la imagen del perfil -->
+            <img src="{{ object.imagen_perfil.url }}" class="card-img-top" alt="Imagen de perfil de {{ object.nombre_principal }}" style="height: 200px; object-fit: cover;">
+            
+            <div class="card-body">
+                <h5 class="card-title">Cedula: {{ object.cedula | title }}</h5>
+            </div>
+            
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Nombre: {{ object.nombre_principal | title }}</li>
+                <li class="list-group-item">Apellido: {{ object.apellido_principal | title }}</li>
+                <li class="list-group-item">Correo Electrónico: {{ object.email | title }}</li>
+                <li class="list-group-item">Teléfono: {{ object.telefono }}</li>
+                <li class="list-group-item">Tipo de Usuario: {{ object.tipo_usuario | title }}</li>
+                <li class="list-group-item">Cargo de Usuario: {{ object.cargo_usuario | title }}</li>
+
+            </ul>
+        </div>
+    </div>
+</main>
+
+{% endblock%}
+
+
+
+{% block cuerpo_2 %}
+
+
+{% endblock%}
+
+{% block enlacessecundariosJS %}
+     
+ 
+ <!--<script src="{% static 'js/boton_expulsar.js' %}" ></script>-->
+ 
+   
+
+{% endblock %}

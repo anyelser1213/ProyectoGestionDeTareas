@@ -1,0 +1,94 @@
+/* Estilos generales */
+.todo-app {
+  padding: 1.5rem; /* p-6 */
+  background-color: white; /* bg-white */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+  border-radius: 0.5rem; /* rounded-lg */
+  max-width: 28rem; /* max-w-md */
+  margin-left: auto; /* mx-auto */
+  margin-right: auto; /* mx-auto */
+}
+
+/* Título */
+.todo-app h1 {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: bold; /* font-bold */
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+/* Input de tarea */
+.todo-app input[type="text"] {
+  border: 1px solid #e2e8f0; /* border */
+  padding: 0.5rem; /* p-2 */
+  width: 100%; /* w-full */
+  margin-bottom: 0.5rem; /* mb-2 */
+}
+
+/* Botón de agregar */
+.todo-app .add-button {
+  background-color: #3b82f6; /* bg-blue-500 */
+  color: white; /* text-white */
+  padding: 0.5rem 1rem; /* px-4 py-2 */
+  border-radius: 0.25rem; /* rounded */
+  width: 100%; /* w-full */
+}
+
+/* Lista de tareas */
+.todo-app ul {
+  margin-top: 1rem; /* mt-4 */
+}
+
+/* Elemento de la lista */
+.todo-app li {
+  padding: 0.5rem; /* p-2 */
+  display: flex; /* flex */
+  justify-content: space-between; /* justify-between */
+  align-items: center; /* items-center */
+  border-bottom: 1px solid #e2e8f0; /* border-b */
+}
+
+/* Texto de la tarea */
+.todo-app .task-text {
+  cursor: pointer; /* cursor-pointer */
+  flex-grow: 1; /* flex-1 */
+}
+
+/* Tarea completada */
+.todo-app .task-text.completed {
+  text-decoration: line-through; /* line-through */
+  color: #6b7280; /* text-gray-500 */
+}
+
+/* Botones de acción */
+.todo-app .action-button {
+  padding: 0.25rem 0.5rem; /* px-2 py-1 */
+  margin-left: 0.5rem; /* ml-2 */
+  border-radius: 0.25rem; /* rounded */
+  color: white; /* text-white */
+}
+
+/* Botón de completar */
+.todo-app .complete-button {
+  background-color: #22c55e; /* bg-green-500 */
+}
+
+/* Botón de completar (cuando la tarea ya está completada) */
+.todo-app .complete-button.completed {
+  background-color: #9ca3af; /* bg-gray-400 */
+}
+
+/* Botón de editar */
+.todo-app .edit-button {
+  background-color: #eab308; /* bg-yellow-500 */
+}
+
+/* Botón de eliminar */
+.todo-app .delete-button {
+  background-color: #ef4444; /* bg-red-500 */
+}
+
+/* Botón de guardar */
+.todo-app .save-button {
+  background-color: #10b981; /* bg-green-500 */
+}

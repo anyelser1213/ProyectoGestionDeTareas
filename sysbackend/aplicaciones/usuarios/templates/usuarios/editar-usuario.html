@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block titulo %}USUARIO | EDITAR{% endblock %}
+
+
+
+{% block enlacessecundariosCSS %}
+        
+{% endblock %}
+
+
+{% block menu_superior %}
+
+        <!--Aqui se incluye el menu superior-->
+        {% include "menusuperior.html" %}
+        
+{% endblock%}
+
+{% block menu_lateral %}
+
+        <!--Aqui se incluye el menu superior-->
+        {% include "menulateral.html" with person="Jane" %}
+            
+{% endblock%}
+
+{% block header_cuerpo %}
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Empleados</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Empleados</a></li>
+              <li class="breadcrumb-item active">Editar</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    {% endblock%}
+
+{% block cuerpo_1 %}
+
+
+
+<div class="container-fluid mt-3">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {% if form.errors %}
+          <div class="alert alert-danger">
+              <ul>
+                  {% for field, errors in form.errors.items %}
+                      <li>{{ field }}: {{ errors|striptags }}</li>
+                  {% endfor %}
+              </ul>
+          </div>
+      {% endif %}
+      <div class="container d-flex justify-content-center">
+        <div class="col-md-6">
+          <div class="row mb-3">
+            <div class="input-group">
+              <span class="input-group-text">Foto Perfil(opcional)</span>
+              {{form.imagen_perfil}}
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="input-group  ">
+              <span class="input-group-text">{{form.cedula.label}}</span>
+              {{ form.cedula }}
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="input-group  ">
+              <span class="input-group-text">Nombre</span>
+              {{ form.nombre_principal }}
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="input-group  ">
+              <span class="input-group-text">Segundo Nombre</span>
+              {{ form.nombre_secundario }}
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="input-group  ">
+              <span class="input-group-text">Apellido</span>
+              {{ form.apellido_principal }}
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="input-group  ">
+              <span class="input-group-text">Segundo Apellido</span>
+              {{ form.apellido_secundario }}
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="input-group  ">
+              <span class="input-group-text">{{form.tipo_usuario.label}} </span>
+              {{ form.tipo_usuario }}
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="input-group  ">
+              <span class="input-group-text">{{form.email.label}} </span>
+              {{ form.email }}
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="input-group  ">
+              <span class="input-group-text">{{form.telefono.label}} </span>
+              {{ form.telefono }}
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="input-group  ">
+              <span class="input-group-text">{{form.direccion.label}} </span>
+              {{ form.direccion }}
+            </div>
+          </div>
+  
+          <div class="row mb-3">
+            <div class="col d-flex justify-content-center">
+              <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+
+{% endblock%}
+
+
+
+{% block cuerpo_2 %}
+            
+{% endblock%}
+
+
+
+            {% block enlacessecundariosJS %}
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+                
+                <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+                <script src="{% static 'js/datatables-simple-demo.js' %}"></script>
+            
+            {% endblock %}

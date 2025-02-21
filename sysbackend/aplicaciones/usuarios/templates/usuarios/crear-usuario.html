@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block titulo %}Usuario | Crear{% endblock %}
+
+
+
+{% block enlacessecundariosCSS %}
+
+<style>
+  #imagenPrevisualizacion {
+  max-width: 100%; /* Asegura que la imagen no crezca más que el contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+  display: block; /* Para que respete el centrado */
+  margin: 0 auto; /* Centramos horizontalmente */
+}
+</style>
+
+        
+{% endblock %}
+
+
+{% block menu_superior %}
+
+        <!--Aqui se incluye el menu superior-->
+        {% include "menusuperior.html" %}
+        
+        
+{% endblock%}
+
+{% block menu_lateral %}
+
+        <!--Aqui se incluye el menu superior-->
+        {% include "menulateral.html" with opcionprincipal="usuarios" subopcion="crear" %}
+            
+{% endblock%}
+
+
+
+{% block header_cuerpo %}
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Usuarios</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Crear</a></li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    {% endblock%}
+
+{% block cuerpo_1 %}
+
+
+<div class="container-fluid mt-3">
+  <form method="post" id="multiStepForm" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% if form.errors %}
+        <div class="alert alert-danger">
+            <ul>
+                {% for field, errors in form.errors.items %}
+                    <li>{{ field }}: {{ errors|striptags }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+    <div class="container d-flex justify-content-center">
+      <div class="col-md-6">
+
+        <div class="row mb-3 justify-content-center">
+          <div class="input-group">
+            <!-- La imagen que vamos a usar para previsualizar lo que el usuario selecciona -->
+            <img src="" id="imagenPrevisualizacion" class="img-fluid">
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="input-group">
+            <span class="input-group-text">Foto Perfil(opcional)</span>
+            {{form.imagen_perfil}}
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="input-group  ">
+            <span class="input-group-text">{{form.cedula.label}}</span>
+            {{ form.cedula }}
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="input-group  ">
+            <span class="input-group-text">Nombre</span>
+            {{ form.nombre_principal }}
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="input-group  ">
+            <span class="input-group-text">Segundo Nombre</span>
+            {{ form.nombre_secundario }}
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="input-group  ">
+            <span class="input-group-text">Apellido</span>
+            {{ form.apellido_principal }}
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="input-group  ">
+            <span class="input-group-text">Segundo Apellido</span>
+            {{ form.apellido_secundario }}
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="input-group  ">
+            <span class="input-group-text">{{form.tipo_usuario.label}} </span>
+            {{ form.tipo_usuario }}
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="input-group  ">
+            <span class="input-group-text">{{form.cargo_usuario.label}} </span>
+            {{ form.cargo_usuario }}
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="input-group  ">
+            <span class="input-group-text">{{form.email.label}} </span>
+            {{ form.email }}
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="input-group  ">
+            <span class="input-group-text">{{form.telefono.label}} </span>
+            {{ form.telefono }}
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="input-group  ">
+            <span class="input-group-text">{{form.direccion.label}} </span>
+            {{ form.direccion }}
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+
+{% endblock%}
+
+{% block cuerpo_2 %}
+
+
+
+{% endblock%}
+
+
+{% block enlacessecundariosJS %}
+
+<!---Libreria de Sweealert2--->
+<script src="{% static 'vendor/sweetalert2/sweetalert2.all.js' %}"></script>
+
+<script src="{% static 'patrimonios/js/validar_numeros.js' %}"></script>
+<script src="{% static 'usuarios/js/validar_imagenes.js' %}"></script>
+
+  <!--AQUI ESTA PARA CREAR EL PROGRESS BAR CON SWEEALERT2-->
+<script src="{% static '/js/progress_bar_con_sweealert2.js' %}"></script>
+
+            
+{% endblock %}
+
+

@@ -1,0 +1,86 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0">
+  <title>Bienes</title>
+  <meta name="author" content="Anyelser Perez">
+  <link rel="stylesheet" href="{% static 'login/css/login_bienes.css' %}">
+  
+  <link rel="shortcut icon" href="{% static 'login/img/logo.png' %}" type="image/x-icon">
+</head>
+<body>
+
+  <header id="main-header">
+		
+		<a id="logo-header" href="#">
+			<span class="site-name">FranciscoAMK</span>
+			<span class="site-desc">Diseño web / WordPress / Tutoriales</span>
+		</a> <!-- / #logo-header -->
+
+		<nav>
+			<ul>
+				<li><a href="#">Inicio</a></li>
+				<li><a href="#">Acerca de</a></li>
+				<li><a href="#">Contacto</a></li>
+			</ul>
+		</nav><!-- / nav -->
+
+	</header><!-- / #main-header -->
+    
+  
+  <section id="page" class="body">
+    <div class="container">
+      <div class="margin-container">
+        <div class="default-container dc-logo">
+          <img src="{% static 'login/img/logo.png' %}" height="150" width="150" class="imagenBorde">
+        </div>
+          <div class="login center">
+            <div class="body">
+              <form action="{% url 'login:login' %}" method="post" encoding='utf-8'>
+              {% csrf_token %}
+              <div class="default-container">
+                <ul>
+                                <li>
+                                    <div class="border-up">
+                                        <div class="inputup-bg">
+                                            
+                                            {{ form.username }}
+
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                  <div class="border-down">
+                                        <div class="inputdown-bg">
+                                           
+                                            {{form.password}}
+
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                       {% if form.non_field_errors  %}
+                              <ul class="messages">
+                                <li class="warning">
+                                  Combinacion de credenciales incorrecta.
+                                </li>
+                              </ul>     
+                        {% endif %}
+
+                        <div class="default-container-top">
+                          <button class="btn colorBoton" type="submit">Iniciar sesion</button>
+                        </div>
+
+                        
+                  </form>
+            </div>
+          </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

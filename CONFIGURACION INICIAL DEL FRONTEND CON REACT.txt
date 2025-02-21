@@ -1,0 +1,33 @@
+1.Creamos el proyecto para la parte del fronted:
+	npm create vite@latest
+
+2.Instalar Dependencias
+	npm install
+
+3.Si instalaste con vite, para iniciar el proyecto es asi:
+	npm run dev
+
+
+/***************/
+NOTA:
+Cuando creas un proyecto con Vite, 
+la estructura de carpetas es más ligera y optimizada 
+en comparación con Create React App.
+
+
+📂 mi-proyecto/
+├── 📂 node_modules/         # Dependencias instaladas
+├── 📂 public/               # Archivos estáticos (favicon, imágenes, etc.)
+├── 📂 src/                  # Código fuente del proyecto
+│   ├── 📄 App.jsx           # Componente principal de la aplicación
+│   ├── 📄 main.jsx          # Punto de entrada de la aplicación
+│   ├── 📂 assets/           # Recursos como imágenes, estilos, etc.
+│   ├── 📂 components/       # Componentes reutilizables
+│   └── 📂 styles/           # Archivos de estilos (opcional)
+├── 📄 .gitignore            # Archivos ignorados por Git
+├── 📄 index.html            # Archivo HTML principal
+├── 📄 package.json          # Configuración del proyecto y dependencias
+├── 📄 vite.config.js        # Configuración de Vite
+└── 📄 README.md             # Documentación del proyecto
+
+/*****************/

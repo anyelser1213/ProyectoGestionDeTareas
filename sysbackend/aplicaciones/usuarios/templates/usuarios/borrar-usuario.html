@@ -1,0 +1,84 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block titulo %}USUARIO | BORRAR{% endblock %}
+
+
+
+{% block enlacessecundariosCSS %}
+        
+{% endblock %}
+
+
+{% block menu_superior %}
+
+        <!--Aqui se incluye el menu superior-->
+        {% include "menusuperior.html" %}
+        
+{% endblock%}
+
+{% block menu_lateral %}
+
+        <!--Aqui se incluye el menu superior-->
+        {% include "menulateral.html" with person=user.username %}
+            
+{% endblock%}
+
+
+{% block header_cuerpo %}
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Usuarios</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Usuarios</a></li>
+              <li class="breadcrumb-item active">Borrar</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+{% endblock%}
+
+{% block cuerpo_1 %}
+
+<main class="app-content">
+    <div class="card" style="width: 18rem;">
+        
+
+    <form method="post">
+        {% csrf_token %}
+        
+        <div class="alert alert-danger" role="alert">
+            <p>¿Tu estas seguro de querer eliminar al Usuario {{object.nombre_principal}} {{object.apellido_principal}}? </p>
+          </div>
+        <input class="btn btn-primary btn-sm btnEditUser" type="submit" value="Si, Confirmar">
+        <a href="{% url 'usuarios:listaUsuarios' %}"><button type="button" class="btn btn-info btn-sm btnEditUser"><i class="fas fa-regular fa-address-book"></i> Cancelar</button></a>
+    </form>
+      </div>
+  </main>
+            
+{% endblock%}
+
+
+{% block cuerpo_2 %}
+
+
+{% endblock%}
+
+
+
+
+
+
+            {% block enlacessecundariosJS %}
+                
+            
+            {% endblock %}
