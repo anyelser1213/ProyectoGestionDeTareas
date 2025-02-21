@@ -1,0 +1,13 @@
+
+1.instalamos dependencias
+	1.cd sysbackend
+	2.pip install -r requerimientos.txt
+
+2.iniciamos migraciones:
+	python manage.py makemigrations
+	python manage.py migrate
+
+
+2.Iniciamos proyecto
+	python manage.py runserver
+
